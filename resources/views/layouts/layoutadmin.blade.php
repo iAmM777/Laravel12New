@@ -364,7 +364,7 @@
 
     <!-- start content -->
     <div class="bg-gray-100 flex-1 p-6 md:mt-16">
-
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Laravel Opdrachten</h1>
         @yield('topmenu')
         @yield('content')
 
