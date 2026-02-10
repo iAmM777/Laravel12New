@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -12,6 +13,8 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('layouts.layoutadmin');
 })->name('admin');
+
+Route::resource('projects', ProjectController::class);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

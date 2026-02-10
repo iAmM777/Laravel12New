@@ -345,11 +345,8 @@
                     <a href="{{ route('register') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600
                     transition ease-in-out duration-500">{{ __('Register') }}</a>
                 @endif
-            @else
+           <!-- @else -->
 
-                <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">Admin</p>
-                <a href="" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out
-                    duration-500">Product admin</a>
             @endguest
             <!-- links for every user -->
             <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">Public</p>
@@ -357,6 +354,12 @@
                 hover:text-teal-600 transition ease-in-out duration-500">Link1</a>
             <a href="#" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition
                 ease-in-out duration-500">Link2</a>
+
+            <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">Admin</p>
+                <a href="{{ route('admin') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out
+                    duration-500">Admin Layout Pagina (debug)</a>
+                <a href="{{ route('projects.index') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out
+                    duration-500">Projects</a>
         </div>
         <!-- end sidebar content -->
     </div>
@@ -365,6 +368,7 @@
     <!-- start content -->
     <div class="bg-gray-100 flex-1 p-6 md:mt-16">
         <h1 class="text-3xl font-bold text-gray-800 mb-6">Laravel Opdrachten</h1>
+        <p class="text-slate-600 leading-relaxed">Een lichte Tailwind admin basis waarop je eigen content kan landen. Gebruik de navigatie links om projecten of taken te beheren.</p>
         @yield('topmenu')
         @yield('content')
 
