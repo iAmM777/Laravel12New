@@ -73,13 +73,13 @@
 <!-- /header -->
 
 <!-- nav -->
-<nav class="w-full bg-white md:pt-0 px-6 relative border-t border-b border-gray-300">
-    <div class="container mx-auto max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
-        <div class="w-full md:w-3/4 text-center md:text-left py-4 flex flex-wrap justify-center items-stretch md:justify-start md:items-start">
-            <a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Home</a>
-            <a href="" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Categorie</a>
-            <a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">About Us</a>
-            <a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">News</a>
+    <nav class="w-full bg-white md:pt-0 px-6 relative border-t border-b border-gray-300">
+        <div class="container mx-auto max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
+            <div class="w-full md:w-3/4 text-center md:text-left py-4 flex flex-wrap justify-center items-stretch md:justify-start md:items-start">
+                <a href="{{ route('home') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Home</a>
+                <a href="{{ route('open.projects.index') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Projecten</a>
+                <a href="{{ route('admin') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Admin</a>
+                <a href="{{ route('dashboard') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Dashboard</a>
             <a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Contact</a>
             @auth
                 <a href="" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline">Winkelwagen <i class="fa-solid fa-cart-shopping"></i> ()</a>
@@ -91,8 +91,6 @@
     </div>
 </nav>
 <!-- /nav -->
-
-@yield('content')
 
 <!-- about -->
 <div class="w-full px-6 py-12 text-left bg-gray-300 text-gray-700 leading-normal">
@@ -109,6 +107,8 @@
     </div>
 </div>
 <!-- /about -->
+        <!--content of open/projects/index.blade.php-->
+        @yield('content')
 <!-- footer -->
 <footer class="w-full bg-white px-6 border-t">
     <div class="container mx-auto max-w-4xl py-6 flex flex-wrap md:flex-no-wrap justify-between items-center text-sm">

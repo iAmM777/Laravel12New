@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ProjectController as Admin;
+use App\Http\Controllers\Open\ProjectController as Open;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -14,8 +15,16 @@ Route::get('/admin', function () {
     return view('layouts.layoutadmin');
 })->name('admin');
 
-Route::resource('projects', ProjectController::class);
-Route::get('projects/{project}/delete', [ProjectController::class, 'delete'])->name('projects.delete');
+Route::prefix('admin')->group(function () {
+    Route::resource('projects', Admin::class);
+    Route::get('projects/{project}/delete', [Admin::class, 'delete'])->name('projects.delete');
+});
+
+// Public projects listing (open)
+Route::get('/projects', [Open::class, 'index'])->name('open.projects.index');
+
+// Admin project resource routes
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
