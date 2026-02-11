@@ -44,7 +44,7 @@ class ProjectController extends \App\Http\Controllers\Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('admin.projects.show', compact('project'));
     }
 
     /**

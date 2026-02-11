@@ -33,6 +33,9 @@
                                 {{ \Illuminate\Support\Str::limit(htmlspecialchars($project->description, ENT_QUOTES), 50) }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="{{ route('projects.show', $project->id) }}" class="text-blue-600 hover:text-blue-900 mr-4">
+                                    View
+                                </a>
                                 <a href="{{ route('projects.edit', $project->id) }}" class="text-teal-600 hover:text-teal-900 mr-4">
                                     Edit
                                 </a>
