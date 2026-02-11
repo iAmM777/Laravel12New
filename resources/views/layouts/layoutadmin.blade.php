@@ -369,6 +369,13 @@
     <div class="bg-gray-100 flex-1 p-6 md:mt-16">
         <h1 class="text-3xl font-bold text-gray-800 mb-6">Laravel Opdrachten</h1>
         <p class="text-slate-600 leading-relaxed">Een lichte Tailwind admin basis waarop je eigen content kan landen. Gebruik de navigatie links om projecten of taken te beheren.</p>
+        
+        @if(session('status'))
+            <div class="mb-4 p-4 bg-green-100 text-green-700 rounded">
+                {{ session('status') }}
+            </div>
+        @endif
+        
         @yield('topmenu')
         @yield('content')
 

@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
-use Illuminate\Http\Request;
 use App\Http\Requests\ProjectStoreRequest;
 
-class ProjectController extends Controller
+class ProjectController extends \App\Http\Controllers\Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,22 +26,17 @@ class ProjectController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param  projectStoreRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): \Illuminate\Http\RedirectResponse
+    public function store(ProjectStoreRequest $request): \Illuminate\Http\RedirectResponse
     {
-        $validated = $request->validate([
-            'name' => 'required|string',
-            'description' => 'required|string',
-        ]);
+        $validated = $request->validated();
 
         $project = new Project();
         $project->name = $validated['name'];
         $project->description = $validated['description'];
         $project->save();
 
-        return to_route('projects.index');
+        return redirect()->route('projects.index')->with('status', "Project {$validated['name']} is aangemaakt");
     }
 
     /**
@@ -64,7 +58,7 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(\Illuminate\Http\Request $request, Project $project)
     {
         //
     }
