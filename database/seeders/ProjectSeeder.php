@@ -8,10 +8,10 @@ use Illuminate\Database\Seeder;
 class ProjectSeeder extends Seeder
 {
     /**
-     * Seed the database with project data.
+     * Run the database seeds.
      */
     public function run(): void
     {
-        Project::factory(10)->create();
+        \App\Models\Project::factory(10)->create();
     }
 }
