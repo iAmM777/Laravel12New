@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
 use App\Http\Requests\ProjectStoreRequest;
+use App\Http\Requests\ProjectUpdateRequest;
+use Pest\Support\View;
 
 class ProjectController extends \App\Http\Controllers\Controller
 {
@@ -52,15 +54,21 @@ class ProjectController extends \App\Http\Controllers\Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', ['project' => $project]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(\Illuminate\Http\Request $request, Project $project)
+    public function update(ProjectUpdateRequest $request, Project $project)
     {
-        //
+        $validated = $request->validated();
+
+        $project->name = $validated['name'];
+        $project->description = $validated['description'];
+        $project->save();
+
+        return redirect()->route('projects.index')->with('status', "Project {$validated['name']} is gewijzigd");
     }
 
     /**
