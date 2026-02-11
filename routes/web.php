@@ -15,6 +15,7 @@ Route::get('/admin', function () {
 })->name('admin');
 
 Route::resource('projects', ProjectController::class);
+Route::get('projects/{project}/delete', [ProjectController::class, 'delete'])->name('projects.delete');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

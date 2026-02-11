@@ -72,10 +72,20 @@ class ProjectController extends \App\Http\Controllers\Controller
     }
 
     /**
+     * Show the form for deleting the specified resource.
+     */
+    public function delete(Project $project)
+    {
+        return view('admin.projects.delete', compact('project'));
+    }
+
+    /**
      * Remove the specified resource from storage.
      */
     public function destroy(Project $project)
     {
-        //
+        $projectName = $project->name;
+        $project->delete();
+        return redirect()->route('projects.index')->with('status', "Project {$projectName} is verwijderd");
     }
 }

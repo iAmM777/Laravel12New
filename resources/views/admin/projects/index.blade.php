@@ -39,13 +39,9 @@
                                 <a href="{{ route('projects.edit', $project->id) }}" class="text-teal-600 hover:text-teal-900 mr-4">
                                     Edit
                                 </a>
-                                <form method="POST" action="{{ route('projects.destroy', $project->id) }}" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Are you sure?')">
-                                        Delete
-                                    </button>
-                                </form>
+                                <a href="{{ route('projects.delete', $project->id) }}" class="text-red-600 hover:text-red-900">
+                                    Delete
+                                </a>
                             </td>
                         </tr>
                     @empty
