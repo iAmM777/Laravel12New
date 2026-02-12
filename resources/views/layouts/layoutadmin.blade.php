@@ -350,8 +350,8 @@
             @endguest
             <!-- links for every user -->
             <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">Public</p>
-            <a href="" class="mb-3 capitalize font-medium text-sm
-                hover:text-teal-600 transition ease-in-out duration-500">Link1</a>
+            <a href="{{ route('home') }}" class="mb-3 capitalize font-medium text-sm
+                hover:text-teal-600 transition ease-in-out duration-500">Home</a>
             <a href="#" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition
                 ease-in-out duration-500">Link2</a>
 
