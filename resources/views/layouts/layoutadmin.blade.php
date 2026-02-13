@@ -352,8 +352,10 @@
             <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">Public</p>
             <a href="{{ route('home') }}" class="mb-3 capitalize font-medium text-sm
                 hover:text-teal-600 transition ease-in-out duration-500">Home</a>
-            <a href="#" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition
+            <!--
+                <a href="#" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition
                 ease-in-out duration-500">Link2</a>
+            -->    
 
             <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">Admin</p>
                 <a href="{{ route('admin') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out
