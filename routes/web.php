@@ -8,14 +8,14 @@ use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('layouts.layoutpublic');
+    return view('home');
 })->name('home');
 
 Route::get('/admin', function () {
     return view('layouts.layoutadmin');
 })->name('admin');
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['role:admin|teacher|student'])->group(function () {
     Route::resource('projects', Admin::class);
     Route::get('projects/{project}/delete', [Admin::class, 'delete'])->name('projects.delete');
 });
