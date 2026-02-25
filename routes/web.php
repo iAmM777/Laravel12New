@@ -13,9 +13,9 @@ Route::get('/', function () {
 
 Route::get('/admin', function () {
     return view('layouts.layoutadmin');
-})->name('admin');
+})->middleware(['auth', 'role:admin|teacher'])->name('admin');
 
-Route::prefix('admin')->middleware(['role:admin|teacher|student'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'role:admin|teacher'])->group(function () {
     Route::resource('projects', Admin::class);
     Route::get('projects/{project}/delete', [Admin::class, 'delete'])->name('projects.delete');
 });
