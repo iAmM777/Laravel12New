@@ -6,7 +6,8 @@
         <h1 class="text-4xl font-bold text-gray-800 mb-4">Welkom bij Laravel Lessenserie</h1>
         @auth
             <p class="text-lg text-gray-600 mb-8">Hallo, {{ auth()->user()->name }}!</p>
-            <a href="{{ route('logout') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Uitloggen</a>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Uitloggen</a>
         @else
             <p class="text-lg text-gray-600 mb-8">Login of registreer om toegang te krijgen tot de applicatie.</p>
             <div class="mt-8">
