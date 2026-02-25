@@ -93,6 +93,7 @@
 <!-- /nav -->
 
 <!-- about -->
+@auth
 <div class="w-full px-6 py-12 text-left bg-gray-300 text-gray-700 leading-normal">
     <div class="container max-w-4xl mx-auto flex justify-center flex-wrap md:flex-no-wrap">
         <div class="w-full md:w-1-3">
@@ -106,6 +107,7 @@
         </div>
     </div>
 </div>
+@endauth
 <!-- /about -->
         <!--content of open/projects/index.blade.php-->
         @yield('content')
