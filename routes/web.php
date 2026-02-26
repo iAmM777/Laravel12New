@@ -14,6 +14,8 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('layouts.layoutadmin');
 })->middleware(['auth', 'role_or_permission:admin|teacher|index project'])->name('admin');
+//Admin &teacher are hard coded to have permissions here. Will fix later.
+
 
 Route::prefix('admin')->group(function () {
     Route::resource('projects', Admin::class);
