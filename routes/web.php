@@ -13,7 +13,7 @@ Route::get('/', function () {
 
 Route::get('/admin', function () {
     return view('layouts.layoutadmin');
-})->middleware(['auth', 'role:admin|teacher'])->name('admin');
+})->middleware(['auth', 'role_or_permission:admin|teacher|index project'])->name('admin');
 
 Route::prefix('admin')->group(function () {
     Route::resource('projects', Admin::class);

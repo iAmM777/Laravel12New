@@ -29,7 +29,9 @@
             </div>
 
             <div class="pt-4">
+                @can('edit project')
                 <a href="{{ route('projects.edit', $project->id) }}" class="inline-flex px-4 py-2 bg-teal-600 text-white rounded hover:bg-teal-700">Edit</a>
+                @endcan
                 <a href="{{ route('projects.index') }}" class="ml-3 text-sm text-gray-600">Back to Projects</a>
             </div>
         </div>

@@ -37,5 +37,23 @@ class UserSeeder extends Seeder
             'password' => Hash::make('admin'),
         ]);
         $admin->assignRole('admin');
+
+        //testrole
+        $testUser = User::create([
+            'name' => 'Test User',
+            'email' => 'testuser@school.nl',
+            'password' => Hash::make('testuser'),
+        ]);
+        $testUser->assignRole('testrole');
+
+
+        //testrole2
+        $testUser2 = User::create([
+            'name' => 'Test User2',
+            'email' => 'testuser2@school.nl',
+            'password' => Hash::make('testuser2'),
+
+        ]);
+        $testUser2->assignRole('testrole2');
     }
 }
