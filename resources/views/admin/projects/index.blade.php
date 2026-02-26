@@ -5,9 +5,11 @@
     <div class="bg-white rounded-lg shadow-md overflow-hidden">
         <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
             <h2 class="text-2xl font-bold text-gray-800">Projects</h2>
+            @can('create project')
             <a href="{{ route('projects.create') }}" class="inline-flex items-center px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded hover:bg-teal-700">
                 Create
             </a>
+            @endcan
         </div>
         
         <div class="overflow-x-auto">
@@ -36,12 +38,16 @@
                                 <a href="{{ route('projects.show', $project->id) }}" class="text-blue-600 hover:text-blue-900 mr-4">
                                     View
                                 </a>
+                                @can('edit project')
                                 <a href="{{ route('projects.edit', $project->id) }}" class="text-teal-600 hover:text-teal-900 mr-4">
                                     Edit
                                 </a>
+                                @endcan
+                                @can('delete project')
                                 <a href="{{ route('projects.delete', $project->id) }}" class="text-red-600 hover:text-red-900">
                                     Delete
                                 </a>
+                                @endcan
                             </td>
                         </tr>
                     @empty

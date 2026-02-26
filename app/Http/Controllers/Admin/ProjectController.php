@@ -14,6 +14,7 @@ class ProjectController extends \App\Http\Controllers\Controller
      */
     public function index()
     {
+        $this->authorize('index project');
         $projects = Project::all();
         return view('admin.projects.index', compact('projects'));
     }
@@ -23,6 +24,7 @@ class ProjectController extends \App\Http\Controllers\Controller
      */
     public function create()
     {
+        $this->authorize('create project');
         return view('admin.projects.create');
     }
 
@@ -31,6 +33,7 @@ class ProjectController extends \App\Http\Controllers\Controller
      */
     public function store(ProjectStoreRequest $request): \Illuminate\Http\RedirectResponse
     {
+        $this->authorize('create project');
         $validated = $request->validated();
 
         $project = new Project();
@@ -46,6 +49,7 @@ class ProjectController extends \App\Http\Controllers\Controller
      */
     public function show(Project $project)
     {
+        $this->authorize('show project');
         return view('admin.projects.show', compact('project'));
     }
 
@@ -54,6 +58,7 @@ class ProjectController extends \App\Http\Controllers\Controller
      */
     public function edit(Project $project)
     {
+        $this->authorize('edit project');
         return view('admin.projects.edit', ['project' => $project]);
     }
 
@@ -62,6 +67,7 @@ class ProjectController extends \App\Http\Controllers\Controller
      */
     public function update(ProjectUpdateRequest $request, Project $project)
     {
+        $this->authorize('edit project');
         $validated = $request->validated();
 
         $project->name = $validated['name'];
@@ -76,6 +82,7 @@ class ProjectController extends \App\Http\Controllers\Controller
      */
     public function delete(Project $project)
     {
+        $this->authorize('delete project');
         return view('admin.projects.delete', compact('project'));
     }
 
@@ -84,6 +91,7 @@ class ProjectController extends \App\Http\Controllers\Controller
      */
     public function destroy(Project $project)
     {
+        $this->authorize('delete project');
         $projectName = $project->name;
         $project->delete();
         return redirect()->route('projects.index')->with('status', "Project {$projectName} is verwijderd");
