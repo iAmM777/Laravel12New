@@ -13,6 +13,6 @@ class TaskSeeder extends Seeder
     public function run(): void
     {
         // create a bunch of tasks; factories will handle related models if necessary
-        Task::factory(20)->create();
+        Task::factory()->create();
     }
 }
