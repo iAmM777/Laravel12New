@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Task;
 
-class Project extends Model
+class Activity extends Model
 {
     use HasFactory;
 
-    protected $table = 'projects';
-    protected $guarded = ['name', 'description'];
+    protected $table = 'activities';
+    protected $guarded = [];
 
     /**
-     * Tasks associated with this project.
+     * Tasks that belong to this activity.
      */
     public function tasks()
     {
