@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Spatie\Permission\Traits\HasRoles;
-use App\Models\Task;
 
 class User extends Authenticatable
 {
@@ -60,13 +59,5 @@ class User extends Authenticatable
             ->take(2)
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
-    }
-
-    /**
-     * Tasks created by (or assigned to) this user.
-     */
-    public function tasks()
-    {
-        return $this->hasMany(Task::class);
     }
 }
