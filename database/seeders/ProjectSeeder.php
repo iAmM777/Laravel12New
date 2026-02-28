@@ -12,15 +12,6 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
-        // create a handful of projects and for each generate a couple of tasks
-        \App\Models\Project::factory(1) //5
-            ->create()
-            ->each(function (\App\Models\Project $project) {
-                // ensure activities exist, TaskFactory will create new activity if needed
-                \App\Models\Task::factory(30)->create([
-                    'project_id' => $project->id,
-                ]);
-            });
         \App\Models\Project::factory(10)->create();
     }
 }
