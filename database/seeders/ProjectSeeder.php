@@ -21,5 +21,6 @@ class ProjectSeeder extends Seeder
                     'project_id' => $project->id,
                 ]);
             });
+        \App\Models\Project::factory(10)->create();
     }
 }
